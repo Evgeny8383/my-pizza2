@@ -6,7 +6,7 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 
 
 
-export default function Home() {
+export default function Home({searchValue}) {
 
     const [pizzas,setPizzas] = React.useState([]);
     const [isLoading,setIsLoading] = React.useState(true);
@@ -31,6 +31,17 @@ export default function Home() {
    window.scrollTo(0,0)
   },[categoryId,sortType])
  
+    const items = pizzas.filter(obj=>{
+      if(obj.title.toLowerCase().includes(searchValue.toLowerCase())){
+        return true
+      }
+      return false
+    }).map((obj)=>
+      <PizzaBlock
+       {...obj}
+      key={obj.id } />
+    
+    )
     return(
         <>
         <div className="content__top">
@@ -40,11 +51,7 @@ export default function Home() {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         { isLoading ? [...new Array(6)].map((_,index)=><Skeleton key={index} />)
-         : pizzas.map((obj)=>(
-            <PizzaBlock
-             {...obj}
-            key={obj.id } />
-          ))
+        : items
         }
          
       </div> 
