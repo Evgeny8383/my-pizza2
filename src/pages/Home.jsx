@@ -3,6 +3,7 @@ import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
+import Pagination from '../components/Pagination';
 
 
 
@@ -53,8 +54,8 @@ export default function Home({searchValue}) {
         { isLoading ? [...new Array(6)].map((_,index)=><Skeleton key={index} />)
         : items
         }
-         
-      </div> 
+        </div> 
+        <Pagination /> 
       </>
     )
 }
