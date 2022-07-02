@@ -1,19 +1,37 @@
 .root{
-li{
-  display: inline-block;
-  text-align: center;
-  width: 40px;
-  height: 40px; 
-  line-height: 20px; 
-  padding: 10px;
-  border: 1px solid rgb(207, 91, 23);
-  border-radius: 30px;
-  margin-left: 10px;
-   
-  a{
-    display: inline-block;
-    color: rgb(207, 91, 23);
+    li{
+        display: inline-block;
+  
+       
+     
+       a{
+          
+          color: rgb(207, 91, 23);
+          text-align: center;
+          width: 40px;
+          height: 40px; 
+          line-height: 20px; 
+          padding: 10px;
+          border: 1px solid rgb(207, 91, 23);
+          border-radius: 30px;
+          margin-left: 10px;
+          cursor: pointer;
+          display: inline-block;
+  
+          &:hover{
+              background-color:rgb(207, 91, 23) ;
+                a {
+                  color: #fff;
+                  }
+                 } 
+          }
+      }
+  :global{
+          .selected{
+              a{
+                  background-color:rgb(207, 91, 23) ;
+                  color: #fff;  
+              }
+          }
+      }
   }
-
- }
-}
